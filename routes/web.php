@@ -16,6 +16,18 @@ Route::get('/', function ()
     return view('welcome');
 });
 
+
+Route::get('/offline', function ()
+{
+    return view('offline');
+});
+
+Route::get('/offline-home', function ()
+{
+    $threads = \App\Thread::latest()->take(10)->get();
+    return view('offline-home', compact('threads'));
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -9,6 +9,7 @@ require('./bootstrap');
 window.Vue = require('vue');
 
 // register service worker
+//
 // Check that service workers are registered
 if ('serviceWorker' in navigator) {
 	// Use the window load event to keep the page load performant
@@ -30,7 +31,7 @@ Vue.prototype.authorize =  (...params) => {
 	if (!window.App.signedIn) return false;
 
 	if (typeof params[ 0 ] === 'string') {
-		return authorizations[ params[ 0 ] ](params[ 1 ])
+		return authorizations[ params[ 0 ] ](params[ 1 ]);
 	}
 
 	return params[ 0 ](window.App.user);
